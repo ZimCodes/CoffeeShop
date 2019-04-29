@@ -1,0 +1,3 @@
+﻿  Coffeeshop.cpp
+c:\users\spidakid\documents\reposgit\coffeeshop\coffeeshop\coffeeshop\coffeeshop.cpp(34): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Coffeeshop.vcxproj -> C:\Users\Spidakid\Documents\ReposGit\CoffeeShop\Coffeeshop\Debug\Coffeeshop.exe

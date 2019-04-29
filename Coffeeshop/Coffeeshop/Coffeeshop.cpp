@@ -3,18 +3,32 @@
 
 #include "pch.h"
 #include <iostream>
+#include "Coffee.h"
+#include "Doughnut.h"
+#include "EggSandwich.h"
+#include "Latte.h"
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	Coffee * c1 = new Coffee();
+	Coffee * c2 = new Coffee();
+	Coffee * c3 = new Coffee();
+	Doughnut * d1 = new Doughnut();
+	EggSandwich * e1 = new EggSandwich();
+	Latte * l1 = new Latte();
+
+	c1->DisplayName(true);
+	std::cout << c1->GetPrice() << "\n";
+
+	d1->DisplayName(true);
+	std::cout << d1->GetPrice() << "\n";
+
+	c2->DisplayName(true);
+	std::cout<<c2->GetPrice() << "\n";
+
+	c3->DisplayName(true);
+	std::cout << c3->GetPrice() << "\n";
+
+	std::cout << EggSandwich::s_instances<<std::endl;
+	std::cout << Latte::s_instances << std::endl;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
