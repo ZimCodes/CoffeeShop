@@ -46,6 +46,19 @@ int main()
 	//--------------------CHECKOUT RESULTS-----------------------------------
 	cashier->DisplayItemAmount();
 	cashier->DisplayTotal();
+
+	//---------------------CUSTOMER PAY FOR CHECKOUT------------------------
+	bool iscorrectpay = false;
+	while (!iscorrectpay) {
+		cashier->AskForPayment();
+		std::cin >> amountinput;
+		if (!cashier->CheckPayment(amountinput)) {
+			cashier->InvalidPayment();
+		}
+		else {
+			iscorrectpay = true;
+		}
+	}
 	cashier->DisplayEndMSG();
 	
 	

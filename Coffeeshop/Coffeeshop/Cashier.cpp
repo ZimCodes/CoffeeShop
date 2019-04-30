@@ -73,7 +73,22 @@ void Cashier::DisplayItemAmount() {
 	}
 	std::cout << "\n";
 }
+void Cashier::AskForPayment() const{
+	std::cout << "How much are you paying today?(pay in whole dollars)\n";
+}
+bool Cashier::CheckPayment(int _amount) {
+	m_change = _amount - m_register->GetTotalPrice();
+	if (m_change < 0) 
+	{
+		return false;
+	}
+	return true;
+}
+void Cashier::InvalidPayment() const {
+	std::cout << "Insufficient payment!\n";
+}
 void Cashier::DisplayEndMSG() const{
+	std::cout << "Your change is $" << m_change<<"\n";
 	std::cout << "<------Thank you and have a nice day!------>\n";
 }
 //add an item to checkout
@@ -100,4 +115,5 @@ void::Cashier::ResetCheckout() {
 	m_coffeeNum = 0;
 	m_eggsandwichNum = 0;
 	m_latteNum = 0;
+	m_change = 0;
 }

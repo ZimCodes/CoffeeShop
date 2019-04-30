@@ -12,6 +12,9 @@ public:
 	void AskHowMany() const;
 	void DisplayTotal();
 	void DisplayItemAmount();
+	void AskForPayment() const;
+	bool CheckPayment(int _amount);
+	void InvalidPayment() const;
 	void DisplayEndMSG() const;
 	//register functions
 	void AddItemToCheckout(ShopItem *_item);
@@ -22,5 +25,6 @@ private:
 	int m_eggsandwichNum;
 	int m_latteNum;
 	int m_coffeeNum;
+	float m_change;
 };
 
