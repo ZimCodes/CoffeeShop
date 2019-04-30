@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cashier.h" />
     <ClInclude Include="CashRegister.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="Doughnut.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="ShopItem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cashier.cpp" />
     <ClCompile Include="CashRegister.cpp" />
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="Coffeeshop.cpp" />

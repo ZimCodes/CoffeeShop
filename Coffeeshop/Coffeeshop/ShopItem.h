@@ -6,9 +6,8 @@ public:
 	ShopItem();
 	ShopItem(const ShopItem& _shopitem);//copy ctr
 	~ShopItem();
-	virtual void DisplayName(bool _isplural) const;
 	virtual float GetPrice();
-	
+	std::string GetName();
 protected:
 	float price;
 	std::string name;

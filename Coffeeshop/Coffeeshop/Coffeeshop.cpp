@@ -7,28 +7,80 @@
 #include "Doughnut.h"
 #include "EggSandwich.h"
 #include "Latte.h"
-
+#include "CashRegister.h"
+#include "Cashier.h"
+void AddToCheckout(Cashier& _cashier, int _input);
 int main()
 {
-	Coffee * c1 = new Coffee();
-	Coffee * c2 = new Coffee();
-	Coffee * c3 = new Coffee();
-	Doughnut * d1 = new Doughnut();
-	EggSandwich * e1 = new EggSandwich();
-	Latte * l1 = new Latte();
+	CashRegister * cashregister = new CashRegister();
+	Cashier * cashier = new Cashier(cashregister);
+	int iteminput = 0;
+	int amountinput = 0;
+	char selectinput = ' ';
+	//Welcome
+	cashier->DisplayWelcome();
+	std::cout << "\n\n";
+	//--------------PLACE YOUR ORDER SECTION----------------------------
+	while (selectinput != 'n') {
+		//------choose item!-----
+		iteminput = 0;
+		while (iteminput < 1 || iteminput > 4)
+		{
+			cashier->DisplayintroMSG();
+			std::cin >> iteminput;
+		}
+		//------how many of item?-----
+		amountinput = 0;
+		while (amountinput < 1) {
+			cashier->AskHowMany();
+			std::cin >> amountinput;
+			for (int i = 0; i < amountinput; i++) {
 
-	c1->DisplayName(true);
-	std::cout << c1->GetPrice() << "\n";
+				AddToCheckout(*cashier, iteminput);
+			}
+		}
+		//------want something else?-----
+		cashier->AskForMoreMSG();
+		std::cin >> selectinput;
+	}
+	//--------------------CHECKOUT RESULTS-----------------------------------
+	cashier->DisplayItemAmount();
+	cashier->DisplayTotal();
+	cashier->DisplayEndMSG();
+	
+	
 
-	d1->DisplayName(true);
-	std::cout << d1->GetPrice() << "\n";
+	//------------------------------MEMORY SECTION----------------------------------------------
+	//pointer goes to null; [deallocation occurred inside Cashier for this register]
+	cashregister = 0;
+	//deallocate checkout shopitems
+	cashier->ResetCheckout();
+	//deallocate cashier
+	delete cashier;
+	cashier = 0;
 
-	c2->DisplayName(true);
-	std::cout<<c2->GetPrice() << "\n";
 
-	c3->DisplayName(true);
-	std::cout << c3->GetPrice() << "\n";
-
-	std::cout << EggSandwich::s_instances<<std::endl;
-	std::cout << Latte::s_instances << std::endl;
+}
+void AddToCheckout(Cashier& _cashier, int _input) {
+	switch (_input)
+	{
+	case 1:
+		//Doughnut
+		_cashier.AddItemToCheckout(new Doughnut());
+		break;
+	case 2:
+		//Egg Sandwich
+		_cashier.AddItemToCheckout(new EggSandwich());
+		break;
+	case 3:
+		//Coffee
+		_cashier.AddItemToCheckout(new Coffee());
+		break;
+	case 4:
+		//Latte
+		_cashier.AddItemToCheckout(new Latte());
+		break;
+	default:
+		break;
+	}
 }

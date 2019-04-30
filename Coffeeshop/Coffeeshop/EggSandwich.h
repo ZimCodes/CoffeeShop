@@ -7,7 +7,6 @@ public:
 	EggSandwich();
 	EggSandwich(const EggSandwich& _eggsandwich);
 	~EggSandwich();
-	void DisplayName(bool _isplural) const;
-	static int s_instances;
+	std::string GetName();
 };
 

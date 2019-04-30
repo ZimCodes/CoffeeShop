@@ -6,6 +6,5 @@ public:
 	Coffee();
 	Coffee(const Coffee& _coffee);
 	~Coffee();
-	static int s_instances;
 };
 

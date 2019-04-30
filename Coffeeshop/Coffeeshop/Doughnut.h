@@ -6,6 +6,5 @@ public:
 	Doughnut();
 	Doughnut(const Doughnut& _doughnut);
 	~Doughnut();
-	static int s_instances;
 };
 
